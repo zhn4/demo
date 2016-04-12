@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/index.css">
+	<script src="./js/index.js"></script>
+	<script src="./node_modules/mustache/mustache.min.js"></script>
+</head>
+<body>
+	<div class="layout">
+		<div class="header">
+			<div class="head">
+				<div class="logo">
+					LOGO
+				</div>
+				<div class="function">
+					<a  class="btn" href="javascript:;">Setting</a>
+					<a  class="btn" href="javascript:;">FeedBack</a>
+				</div>
+			</div>
+			<div class="list">
+				<ul>
+					<li><a href="#cpu" class="class-name active" id="cpu">CPU</a></li>
+					<li><a href="#gpu" class="class-name" id="gpu">GPU</a></li>
+					<li><a href="#disk" class="class-name" id="disk">Disk</a></li>
+					<li><a href="#power" class="class-name" id="power">Power</a></li>
+					<li><a href="#ram" class="class-name" id="ram">RAM</a></li>
+					<li><a href="#mouse" class="class-name" id="mouse">Mouse</a></li>
+					<li><a href="#keyboard" class="class-name" id="keyboard">Keyboard</a></li>
+					<li><a href="#displayer" class="class-name" id="displayer">Displayer</a></li>
+					<li><a href="#cooler" class="class-name" id="cooler">Cooler</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="pull-to-refresh" id="refresh">
+			<img src="./img/loading.gif" alt="Loading...">
+		</div>
+		<div class="content">
+			<ul id="box">
+				<li>
+					<div class="news">
+						<div class="cover">
+
+						</div>
+						<div class="details">
+							<div class="title">
+								This is a title, test test test test!This is a title, test test test test!
+							</div>
+							<div class="view-count">
+								<i class="icon"></i>
+								75645
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="news">
+						<div class="cover">
+
+						</div>
+						<div class="details">
+							<div class="title">
+								This is a title, test test test test!This is a title, test test test test!
+							</div>
+							<div class="view-count">
+								<i class="icon"></i>
+								75645
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="news">
+						<div class="cover">
+
+						</div>
+						<div class="details">
+							<div class="title">
+								This is a title, test test test test!This is a title, test test test test!
+							</div>
+							<div class="view-count">
+								<i class="icon"></i>
+								75645
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="news">
+						<div class="cover">
+
+						</div>
+						<div class="details">
+							<div class="title">
+								This is a title, test test test test!This is a title, test test test test!
+							</div>
+							<div class="view-count">
+								<i class="icon"></i>
+								75645
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="news">
+						<div class="cover">
+
+						</div>
+						<div class="details">
+							<div class="title">
+								This is a title, test test test test!This is a title, test test test test!
+							</div>
+							<div class="view-count">
+								<i class="icon"></i>
+								75645
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="news">
+						<div class="cover">
+
+						</div>
+						<div class="details">
+							<div class="title">
+								This is a title, test test test test!This is a title, test test test test!
+							</div>
+							<div class="view-count">
+								<i class="icon"></i>
+								75645
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="news">
+						<div class="cover">
+
+						</div>
+						<div class="details">
+							<div class="title">
+								This is a title, test test test test!This is a title, test test test test!
+							</div>
+							<div class="view-count">
+								<i class="icon"></i>
+								75645
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="news">
+						<div class="cover">
+
+						</div>
+						<div class="details">
+							<div class="title">
+								This is a title, test test test test!This is a title, test test test test!
+							</div>
+							<div class="view-count">
+								<i class="icon"></i>
+								75645
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div class="loading">
+				Loading......
+			</div>
+		</div>
+		<a class="top" href="#" id="to-top"></a>
+	</div>
+
+	<script type="text/template" id="template">
+	{{#data}}
+	<li>
+		<div class="news">
+			<div class="cover">
+
+			</div>
+			<div class="details">
+				<div class="title">
+					{{title}}
+				</div>
+				<div class="view-count">
+					<i class="icon"></i>
+					{{view_count}}
+				</div>
+			</div>
+		</div>
+	</li>
+	{{/data}}
+	</script>
+</body>
+</html>
