@@ -65,64 +65,58 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="sass">
 .search {
   width: 100%;
   position: relative;
-}
-.search input[type="text"] {
-  width: 100%;
-  height: 35px;
-  box-sizing: border-box;
-  outline: none;
-  padding: 0 10px;
-}
-.search button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 35px;
-  background-color: #2a8c70;
-  color: #fff;
-  border: 0;
-  padding: 0 10px;
-}
-.search .loading {
-  text-align: center;
-}
-.search .show {
-  padding: 0 10px;
-}
-.search .show ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.search .show li {
-  margin-bottom: 5px;
-  padding: 5px 0;
-  border-bottom: 1px dashed #eee;
-}
-.search .show li:last-of-type {
-  margin-bottom: 0;
-}
-.search .show p {
-  text-align: center;
-}
-.search .show .details {
-
-}
-.search .show .cover {
-  float: right;
-}
-.search .show a {
-  overflow: hidden;
-  text-decoration: none;
-  color: #37a;
-}
-.search .show a::after {
-  content: "";
-  display: block;
-  clear: both;
+  input[type="text"] {
+    width: 100%;
+    height: 35px;
+    box-sizing: border-box;
+    outline: none;
+    padding: 0 10px;
+  }
+  button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 35px;
+    background-color: #2a8c70;
+    color: #fff;
+    border: 0;
+    padding: 0 10px;
+  }
+  .loading {
+    text-align: center;
+  }
+  .show {
+    padding: 0 10px;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        margin-bottom: 5px;
+        padding: 5px 0;
+        border-bottom: 1px dashed #eee;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .cover {
+      float: right;
+    }
+    a {
+      overflow: hidden;
+      text-decoration: none;
+      color: #37a;
+      &::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    }
+  }
 }
 </style>

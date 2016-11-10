@@ -19,7 +19,7 @@
   }
 </script>
 
-<style>
+<style lang="sass">
   body {
     font-family: "Microsoft YaHei";
     font-size: 14px;
@@ -29,14 +29,14 @@
   .doubanmovies {
     max-width: 414px;
     margin: 0 auto;
-  }
-  .title {
-    font-size: 18px;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    background-color: #f6faf9;
-    padding: 10px 0;
-    color: #2aac5e;
+    .title {
+      font-size: 18px;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #f6faf9;
+      padding: 10px 0;
+      color: #2aac5e;
+    }
   }
 </style>
