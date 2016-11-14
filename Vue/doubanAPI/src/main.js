@@ -15,7 +15,7 @@ Vue.use(VueResource);
 // 可以从其他文件 import 进来
 const Foo = { template: '<div>foo</div>' }
 const Bar = { template: '<div>bar</div>' }
-import index from './app.vue'
+import index from './component/index.vue'
 import movies from './component/doubanMovies.vue'
 import music from './component/doubanMusic.vue'
 
