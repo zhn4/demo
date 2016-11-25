@@ -8,7 +8,7 @@
       @input="updateValue($event.target.value)"
       @keyup.13="enterFunction"
     >
-    <input type="button" value="搜索">
+    <input type="button" value="搜索" @click="enterFunction">
   </div>
 </template>
 
@@ -39,6 +39,7 @@ export default {
       line-height: 35px;
       padding: 0 10px;
       outline: none;
+      border: 1px solid #EEE;
     }
     input[type="button"] {
       position: absolute;

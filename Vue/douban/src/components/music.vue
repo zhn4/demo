@@ -35,7 +35,6 @@ export default {
     return {
       title: '豆瓣音乐',
       placeholder: '搜索音乐',
-      key: 'music的输入数据',
       loading: false,
       message: '',
       musics: []
@@ -73,9 +72,8 @@ export default {
   .music {
     .show {
       .results {
-        // margin-bottom: 10px;
         border-bottom: 1px dashed #eee;
-        padding: 10px 0;
+        padding: 10px;
         &::after {
           content: "";
           display: block;
