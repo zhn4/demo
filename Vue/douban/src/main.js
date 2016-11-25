@@ -11,6 +11,7 @@ Vue.use(VueResource)
 
 import movie from './components/movie.vue'
 import music from './components/music.vue'
+import index from './components/index.vue'
 const sometext  = {
   template: '<h1> text </h1>'
 }
@@ -24,6 +25,10 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
+    {
+      path: '/',
+      component: index
+    },
     {
       path: '/movie',
       component: movie
