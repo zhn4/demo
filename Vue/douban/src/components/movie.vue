@@ -60,9 +60,18 @@ export default {
       })
     },
     getCastsInfo() {
-      console.log('1')
-      console.log(event.target)
-      console.log(event.target.getAttribute('data-id'))
+      // console.log('1')
+      // console.log(event.target)
+      // console.log(event.target.getAttribute('data-id'))
+      const id = event.target.getAttribute('data-id')
+      // https://api.douban.com/v2/movie/celebrity/1027502
+      this.$http.jsonp('https://api.douban.com/v2/movie/celebrity/' + id, {}).then(function(res) {
+        console.log('success')
+        console.log(res.data)
+      }, function(res) {
+        console.log('error')
+        console.log(res.data)
+      })
     }
   },
   mounted: function() {

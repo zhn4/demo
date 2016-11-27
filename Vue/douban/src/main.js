@@ -12,6 +12,7 @@ Vue.use(VueResource)
 import movie from './components/movie.vue'
 import music from './components/music.vue'
 import index from './components/index.vue'
+import castinfo from './components/castInfo.vue'
 import Acomp from './test/A.vue'
 const sometext  = {
   template: '<h1> text </h1>'
@@ -33,6 +34,10 @@ const router = new VueRouter({
     {
       path: '/movie',
       component: movie
+    },
+    {
+      path: '/cast',
+      component: castinfo
     },
     {
       path: '/music',
