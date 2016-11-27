@@ -12,6 +12,7 @@ Vue.use(VueResource)
 import movie from './components/movie.vue'
 import music from './components/music.vue'
 import index from './components/index.vue'
+import Acomp from './test/A.vue'
 const sometext  = {
   template: '<h1> text </h1>'
 }
@@ -40,6 +41,10 @@ const router = new VueRouter({
     {
       path: '/text',
       component: sometext
+    },
+    {
+      path: '/test',
+      component: Acomp
     }
   ]
 })
