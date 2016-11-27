@@ -16,9 +16,13 @@
             </div>
             <div class="name">{{movie.title}}</div>
             <div>
-              <span v-for="cast in movie.casts">
+              <a href="javascript:;"
+              v-for="cast in movie.casts"
+              @click="getCastsInfo"
+              :data-id="cast.id"
+              >
                 {{cast.name}}
-              </span>
+              </a>
             </div>
           </div>
         </li>
@@ -54,6 +58,11 @@ export default {
         console.log('error')
         console.log(res.data)
       })
+    },
+    getCastsInfo() {
+      console.log('1')
+      console.log(event.target)
+      console.log(event.target.getAttribute('data-id'))
     }
   },
   mounted: function() {
