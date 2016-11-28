@@ -27,6 +27,14 @@
           </div>
         </li>
       </ul>
+      <card
+        :image="castinfo.avatars.small"
+        :name="castinfo.name"
+        :born_place="castinfo.born_place"
+        :gender="castinfo.gender"
+        :name_en="castinfo.name_en"
+        :show="showcard"
+        ></card>
     </div>
   </div>
 </template>
@@ -35,6 +43,7 @@
 import doubanTitle from './title.vue'
 import search from './search.vue'
 import loading from './loading.vue'
+import card from './castInfoCard.vue'
 export default {
   data() {
     return {
@@ -42,7 +51,9 @@ export default {
       placeholder: '搜索电影',
       loading: false,
       message: '',
-      movies: []
+      movies: [],
+      castinfo: [],
+      showcard: false
     }
   },
   methods: {
@@ -64,10 +75,13 @@ export default {
       // console.log(event.target)
       // console.log(event.target.getAttribute('data-id'))
       const id = event.target.getAttribute('data-id')
-      // https://api.douban.com/v2/movie/celebrity/1027502
       this.$http.jsonp('https://api.douban.com/v2/movie/celebrity/' + id, {}).then(function(res) {
         console.log('success')
         console.log(res.data)
+        console.log('here')
+        this.castinfo = res.data
+        console.log(this.castinfo)
+        this.showcard = true
       }, function(res) {
         console.log('error')
         console.log(res.data)
@@ -87,7 +101,7 @@ export default {
     })
   },
   components: {
-    doubanTitle, search, loading
+    doubanTitle, search, loading, card
   }
 }
 </script>

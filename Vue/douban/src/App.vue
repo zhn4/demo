@@ -61,6 +61,7 @@ export default {
   color: #2c3e50;
   max-width: 414px;
   margin: 0 auto;
+  position: relative;
 }
 //
 // h1, h2 {
