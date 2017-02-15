@@ -25,18 +25,12 @@ class InpuText extends Component {
       // noteData: JSON.parse(localStorage.getItem('note'))
     }
   }
-  componentDidMount() {
-    console.log('已加载组件，读取数据');
-    // if(localStorage.getItem('note')) {
-    //   console.log('存在localStorage');
-    //   console.log(localStorage.getItem('note'));
-    // }else {
-    //   console.log('没有localStorage数据');
-    // }
-  }
-  componentWillMount() {
-    console.log('未加载组件');
-  }
+  // componentDidMount() {
+  //   console.log('已加载组件，读取数据');
+  // }
+  // componentWillMount() {
+  //   console.log('未加载组件');
+  // }
   updateInputValue(e) {
     this.setState({
       inputValue: e.target.value
@@ -46,6 +40,9 @@ class InpuText extends Component {
     if(e.key && e.key === 'Enter') {
       this.props.getInputValue(e.target.value);
       console.log(e.target.value);
+      this.setState({
+        inputValue: ''
+      })
     }
   }
   sendInputValueTwo(e) {
