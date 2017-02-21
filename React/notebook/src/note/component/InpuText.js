@@ -13,7 +13,7 @@ class InpuText extends Component {
     })
   }
   sendInputValue(e) {
-    if(e.key && e.key === 'Enter') {
+    if(e.key && e.key === 'Enter' && e.target.value !== '') {
       this.props.getInputValue(e.target.value);
       console.log(e.target.value);
       this.setState({
@@ -37,7 +37,7 @@ class InpuText extends Component {
         />
         <button onClick={this.sendInputValueTwo.bind(this)}//发送inputValue
         >send</button>
-        <p>{this.state.inputValue}</p>
+        {/* <p>{this.state.inputValue}</p> */}
       </div>
     )
   }

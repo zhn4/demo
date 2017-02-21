@@ -29,7 +29,8 @@ class Note extends Component {
     if(localStorage.getItem('note')) {
       console.log('已存在数据')
       this.state.noteData.push({
-        text: getValue
+        text: getValue,
+        done: false
       })
       let note = {
         details: this.state.noteData
@@ -41,13 +42,30 @@ class Note extends Component {
         details: []
       }
       note.details.push({
-        text: getValue
+        text: getValue,
+        done: false
       })
       this.setState({
         noteData: note.details
       })
       localStorage.setItem('note', JSON.stringify(note));
     }
+  }
+  finish(index, e) {
+    // console.log(index)
+    console.log(e.target.checked)
+    if(e.target.checked === true) {
+      console.log('可以删除')
+      this.state.noteData.splice(index, 1)//移除所选数据
+      this.setState({
+        noteData: this.state.noteData
+      })
+      let note = {
+        details: this.state.noteData
+      }
+      localStorage.setItem('note', JSON.stringify(note));
+    }
+    // e.target.checked == false
   }
   render() {
     return (
@@ -63,6 +81,8 @@ class Note extends Component {
               {this.state.noteData.map((notes, i)=>(
                 <li key={i}>
                   {i}:{notes.text}
+                  <input type="checkbox"
+                    onChange={this.finish.bind(this, i)}/>
                 </li>
               ))}
             </ul>
