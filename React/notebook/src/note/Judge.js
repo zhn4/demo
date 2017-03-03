@@ -23,12 +23,9 @@ import './style/Note.css';
 //     done: false
 //   }
 // ]
-
 // localStorage.setItem('list', JSON.stringify(list));
 
-let list = JSON.parse(localStorage.getItem('list'));// localStorage数据
-// console.log('list')
-// console.log(list)
+let list = localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : [];// localStorage数据
 
 class Judge extends Component {
   constructor(props) {
