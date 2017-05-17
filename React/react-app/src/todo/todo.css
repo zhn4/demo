@@ -1,0 +1,16 @@
+.todo {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.todo input[type="text"]{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+.done li {
+  text-decoration: line-through;
+}
