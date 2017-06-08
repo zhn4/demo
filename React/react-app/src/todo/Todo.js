@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 import './todo.css'
 
@@ -69,7 +70,7 @@ class Doing extends Component {
               <li key={i}>
                 {data.text}
                 <input type="checkbox"
-                  onClick={this.handleChecked.bind(this, i)}/>
+                  onChange={this.handleChecked.bind(this, i)}/>
               </li>
             :
               ''
@@ -78,6 +79,10 @@ class Doing extends Component {
       </div>
     )
   }
+}
+
+Doing.propTypes = {
+  list: PropTypes.array
 }
 
 class Done extends Component {
@@ -98,11 +103,15 @@ class Done extends Component {
                 {data.text}
                 <input type="checkbox"
                   checked
-                  onClick={this.haneldNotChecked.bind(this, i)}/>
+                  onChange={this.haneldNotChecked.bind(this, i)}/>
               </li>
           ))}
         </ul>
       </div>
     )
   }
+}
+
+Done.PropTypes = {
+  list: PropTypes.array
 }
