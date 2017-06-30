@@ -3,13 +3,6 @@ var router = express.Router();
 
 var Music = require('../models/music.js')
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Express' });
-// });
-//
-// module.exports = router;
-
 module.exports = function(app) {
   app.get('/', function(req, res, next) {
     res.render('index', {
@@ -24,5 +17,25 @@ module.exports = function(app) {
          .catch(err => {
            res.json(err)
          })
+  })
+  app.post('/api/addMusic', function(req, res, next) {
+    var music = new Music({
+      title: req.body.title,
+      singer: req.body.singer
+    })
+    music.save(function(err, doc) {
+      if(err) {
+        console.log('保存失败')
+        console.log(err)
+        res.json({
+          msg: '保存失败'
+        })
+        return
+      }
+      console.log('保存成功')
+      res.json({
+        msg: '保存成功'
+      })
+    })
   })
 }

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Add from './Add.js'
+
+import './music.css'
+
 class Music extends Component {
   constructor(props) {
     super(props)
@@ -9,34 +13,33 @@ class Music extends Component {
     }
   }
   componentWillMount() {
-    fetch('http://192.168.1.82:3000/api/music', {
+    fetch('http://localhost:3000/api/music', {
       method: 'get',
-      mode: 'no-cors',
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      },
-    })
-    .then(musics => {
-      console.log('success')
-      console.log(musics.json())
-    })
-    .catch(err => {
-      console.log(err)
-    })
-    // this.setState({
-    //   songs: [
-    //     {
-    //       title: '第七感',
-    //       singer: '张靓颖'
-    //     }
-    //   ]
-    // })
+        'Access-Control-Allow-Origin': '*',
+        'Accept': 'application/json'
+      }
+    }).then(res => {
+        if(res.ok) {
+          console.log(res)
+          res.json().then(json => {
+            console.log(json)
+            this.setState({
+              songs: json
+            })
+          })
+        }
+      }).catch(err => {
+        console.log(err)
+      })
   }
   render() {
     return (
       <div className="music">
         <MusicItem songs={this.state.songs}/>
+        <Add />
       </div>
     )
   }
@@ -50,7 +53,10 @@ class MusicItem extends Component {
           this.props.songs
             ?
               this.props.songs.map((song, i) => (
-                <span key={i}>{song.title} -> {song.singer}</span>
+                <div key={i}>
+                  {song.title} -> {song.singer}
+                  <a className="delete">删除</a>
+                </div>
               ))
             :
             <p>false</p>
