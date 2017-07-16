@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Add from './Add.js'
+import Search from './Search.js'
 
 import './music.css'
 
@@ -40,6 +41,7 @@ class Music extends Component {
       <div className="music">
         <MusicItem songs={this.state.songs}/>
         <Add />
+        <Search />
       </div>
     )
   }

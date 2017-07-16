@@ -38,4 +38,15 @@ module.exports = function(app) {
       })
     })
   })
+  app.post('/api/search', function(req, res, next) {
+    Music.findOne({
+      'title': req.body.title
+    })
+    .then(musics => {
+      res.json(musics)
+    })
+    .catch(err => {
+      res.json(err)
+    })
+  })
 }
