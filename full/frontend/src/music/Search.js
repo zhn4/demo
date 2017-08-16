@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
+import MusicItem from './Item.js'
 
 class Search extends Component {
-  // constructor() {
-  //
-  // }
+  constructor(props) {
+    super(props)
+    this.state = {
+      songs: null
+    }
+  }
   handleSearch(e) {
     if(e.key === 'Enter' && this.refs.keyword.value !== '') {
       console.log(this.refs.keyword.value)
@@ -12,7 +16,7 @@ class Search extends Component {
         method: 'post',
         mode: 'cors',
         body: JSON.stringify({
-          title: this.refs.keyword.value
+          key_word: this.refs.keyword.value
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -42,6 +46,7 @@ class Search extends Component {
           placeholder="搜索"
           ref="keyword"
           onKeyPress={this.handleSearch.bind(this)}/>
+          <MusicItem songs={this.state.songs}/>
       </div>
     )
   }

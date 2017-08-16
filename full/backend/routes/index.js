@@ -38,10 +38,31 @@ module.exports = function(app) {
       })
     })
   })
-  app.post('/api/search', function(req, res, next) {
-    Music.findOne({
-      'title': req.body.title
+  app.delete('/api/deleteMusic/:id', function(req, res, next) {
+    Music.findOneAndRemove({
+      _id: req.params.id
     })
+    .then(res.json({msg: '删除成功'}))
+    .catch(err => res.json(err))
+  })
+  app.post('/api/search', function(req, res, next) {
+    // Music.find({
+    //   singer: new RegExp(req.body.key_word, 'i')
+    // })
+    // .then(musics => {
+    //   res.json(musics)
+    // })
+    // .catch(err => {
+    //   res.json(err)
+    // })
+    Music.find().or([
+      {
+        title: new RegExp(req.body.key_word, 'i')
+      },
+      {
+        singer: new RegExp(req.body.key_word, 'i')
+      }
+    ])
     .then(musics => {
       res.json(musics)
     })

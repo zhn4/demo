@@ -39,6 +39,18 @@ var music_array = [
     title: '亲近',
     singer: '陈奕迅'
   },
+  {
+    title: 'hello',
+    singer: 'adele'
+  },
+  {
+    title: 'ghost town  ',
+    singer: 'Adam Lambert'
+  },
+  {
+    title: 'animals',
+    singer: 'Maroon 5'
+  },
 ]
 
 for(var i = 0; i < music_array.length; i++) {
