@@ -5,29 +5,56 @@ import './arrayoperating.css'
 /*
 round,group,team,person
 */
-var data = [
+// import data from './data.js'
+let data = [
   [// round
     [// group
       [// team
         {// person
           name: 'Jenny',
-          score: 0,
+          score: 3,
           win: false
         },
         {// person
           name: 'Ben',
+          score: 4,
+          win: false
+        }
+      ],
+      [// team
+        {// person
+          name: 'Alen',
+          score: 0,
+          win: false
+        },
+        {// person
+          name: 'Cherry',
+          score: 0,
+          win: false
+        }
+      ]
+    ],
+    [// group
+      [// team
+        {// person
+          name: 'Jude',
+          score: 0,
+          win: false
+        },
+        {// person
+          name: 'Peter',
           score: 0,
           win: false
         }
       ],
       [// team
         {// person
-          name: 'AJ',
+          name: 'Alen',
           score: 0,
           win: false
         },
         {// person
-          name: 'Marry',
+          name: 'Tony',
           score: 0,
           win: false
         }
@@ -38,24 +65,50 @@ var data = [
     [// group
       [// team
         {// person
-          name: 'Mike',
+          name: 'Jenny2',
+          score: 12,
+          win: false
+        },
+        {// person
+          name: 'Ben2',
+          score: 22,
+          win: false
+        }
+      ],
+      [// team
+        {// person
+          name: 'Alen2',
+          score: 10,
+          win: false
+        },
+        {// person
+          name: 'Cherry2',
+          score: 0,
+          win: false
+        }
+      ]
+    ],
+    [// group
+      [// team
+        {// person
+          name: 'Jude2',
           score: 0,
           win: false
         },
         {// person
-          name: 'Penny',
+          name: 'Peter2',
           score: 0,
           win: false
         }
       ],
       [// team
         {// person
-          name: 'Alex',
+          name: 'Alen2',
           score: 0,
           win: false
         },
         {// person
-          name: 'Janet',
+          name: 'Tony2',
           score: 0,
           win: false
         }
@@ -64,17 +117,17 @@ var data = [
   ]
 ]
 
-var round = [// round
+let round = [// round
   [// group
     [// team
       {// person
         name: 'Jenny',
-        score: 0,
+        score: 3,
         win: false
       },
       {// person
         name: 'Ben',
-        score: 0,
+        score: 4,
         win: false
       }
     ],
@@ -119,7 +172,7 @@ var round = [// round
   ]
 ]
 
-var group = [// group
+let group = [// group
   [// team
     {// person
       name: 'Jenny',
@@ -146,7 +199,7 @@ var group = [// group
   ]
 ]
 
-var team = [// team
+let team = [// team
   {// person
     name: 'Jenny',
     score: 0,
@@ -159,7 +212,7 @@ var team = [// team
   }
 ]
 
-var person = {// person
+let person = {// person
   name: 'Ben',
   score: 0,
   win: false
@@ -191,7 +244,7 @@ export default class Arrayoperating extends Component {
           {/* <Round round={this.state.round}/> */}
           {
             this.state.array_data.map((data, i) => (
-              <Round key={i} round={this.state.round}/>
+              <Round round={data}/>
             ))
           }
         </div>
@@ -207,6 +260,7 @@ class Round extends Component {
   render() {
     return (
       <div className="round">
+        <div>Round</div>
         {
           this.props.round.map((data, i) => (
             // <div key={i}>321</div>
@@ -222,6 +276,7 @@ class Group extends Component {
   render() {
     return (
       <div className="group">
+        <div>Group</div>
         {
           this.props.group.map((data, i) => (
             // <div key={i}>123</div>
@@ -237,6 +292,7 @@ class Team extends Component {
   render() {
     return (
       <div className="team">
+        <div>Team</div>
         {
           this.props.team.map((data, i) => (
             <Person key={i} name={data.name} score={data.score}/>
@@ -250,12 +306,3 @@ class Team extends Component {
 const Person = (props) => (
   <div className="person">{props.name} - {props.score}</div>
 )
-
-
-// class Person extends Component {
-//   render() {
-//     return (
-//       <div>{this.props.name}</div>
-//     )
-//   }
-// }
