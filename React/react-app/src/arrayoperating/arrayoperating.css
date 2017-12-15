@@ -21,3 +21,7 @@
   padding: 8px;
   margin-bottom: 10px;
 }
+
+.array .round button {
+  display: inline-block;
+}
