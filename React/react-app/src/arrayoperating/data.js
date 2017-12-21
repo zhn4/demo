@@ -4,7 +4,7 @@ let data = [
       [// team
         {// person
           name: 'Jenny',
-          score: 3,
+          score: 8,
           win: false
         },
         {// person

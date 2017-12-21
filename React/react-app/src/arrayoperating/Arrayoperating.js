@@ -5,117 +5,117 @@ import './arrayoperating.css'
 /*
 round,group,team,person
 */
-// import data from './data.js'
-let data = [
-  [// round
-    [// group
-      [// team
-        {// person
-          name: 'Jenny',
-          score: 3,
-          win: false
-        },
-        {// person
-          name: 'Ben',
-          score: 4,
-          win: false
-        }
-      ],
-      [// team
-        {// person
-          name: 'Alen',
-          score: 0,
-          win: false
-        },
-        {// person
-          name: 'Cherry',
-          score: 0,
-          win: false
-        }
-      ]
-    ],
-    [// group
-      [// team
-        {// person
-          name: 'Jude',
-          score: 0,
-          win: false
-        },
-        {// person
-          name: 'Peter',
-          score: 0,
-          win: false
-        }
-      ],
-      [// team
-        {// person
-          name: 'Alen',
-          score: 0,
-          win: false
-        },
-        {// person
-          name: 'Tony',
-          score: 0,
-          win: false
-        }
-      ]
-    ]
-  ],
-  [// round
-    [// group
-      [// team
-        {// person
-          name: 'Jenny2',
-          score: 12,
-          win: false
-        },
-        {// person
-          name: 'Ben2',
-          score: 22,
-          win: false
-        }
-      ],
-      [// team
-        {// person
-          name: 'Alen2',
-          score: 10,
-          win: false
-        },
-        {// person
-          name: 'Cherry2',
-          score: 0,
-          win: false
-        }
-      ]
-    ],
-    [// group
-      [// team
-        {// person
-          name: 'Jude2',
-          score: 0,
-          win: false
-        },
-        {// person
-          name: 'Peter2',
-          score: 0,
-          win: false
-        }
-      ],
-      [// team
-        {// person
-          name: 'Alen2',
-          score: 0,
-          win: false
-        },
-        {// person
-          name: 'Tony2',
-          score: 0,
-          win: false
-        }
-      ]
-    ]
-  ]
-]
+import data from './data.js'
+// let data = [
+//   [// round
+//     [// group
+//       [// team
+//         {// person
+//           name: 'Jenny',
+//           score: 3,
+//           win: false
+//         },
+//         {// person
+//           name: 'Ben',
+//           score: 4,
+//           win: false
+//         }
+//       ],
+//       [// team
+//         {// person
+//           name: 'Alen',
+//           score: 0,
+//           win: false
+//         },
+//         {// person
+//           name: 'Cherry',
+//           score: 0,
+//           win: false
+//         }
+//       ]
+//     ],
+//     [// group
+//       [// team
+//         {// person
+//           name: 'Jude',
+//           score: 0,
+//           win: false
+//         },
+//         {// person
+//           name: 'Peter',
+//           score: 0,
+//           win: false
+//         }
+//       ],
+//       [// team
+//         {// person
+//           name: 'Alen',
+//           score: 0,
+//           win: false
+//         },
+//         {// person
+//           name: 'Tony',
+//           score: 0,
+//           win: false
+//         }
+//       ]
+//     ]
+//   ],
+//   [// round
+//     [// group
+//       [// team
+//         {// person
+//           name: 'Jenny2',
+//           score: 12,
+//           win: false
+//         },
+//         {// person
+//           name: 'Ben2',
+//           score: 22,
+//           win: false
+//         }
+//       ],
+//       [// team
+//         {// person
+//           name: 'Alen2',
+//           score: 10,
+//           win: false
+//         },
+//         {// person
+//           name: 'Cherry2',
+//           score: 0,
+//           win: false
+//         }
+//       ]
+//     ],
+//     [// group
+//       [// team
+//         {// person
+//           name: 'Jude2',
+//           score: 0,
+//           win: false
+//         },
+//         {// person
+//           name: 'Peter2',
+//           score: 0,
+//           win: false
+//         }
+//       ],
+//       [// team
+//         {// person
+//           name: 'Alen2',
+//           score: 0,
+//           win: false
+//         },
+//         {// person
+//           name: 'Tony2',
+//           score: 0,
+//           win: false
+//         }
+//       ]
+//     ]
+//   ]
+// ]
 
 let round = [// round
   [// group
@@ -218,16 +218,48 @@ let person = {// person
   win: false
 }
 
+let people_list = [
+  {
+    name: 'Wang',
+    score: 0,
+    win: false
+  },
+  {
+    name: 'Zhou',
+    score: 0,
+    win: false
+  },
+  {
+    name: 'Guo',
+    score: 0,
+    win: false
+  },
+  {
+    name: 'Chen',
+    score: 0,
+    win: false
+  },
+  {
+    name: 'Jiang',
+    score: 0,
+    win: false
+  }
+]
+
 export default class Arrayoperating extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      array_data: data,
+      array_data: [],
       person: person,
       team: team,
       group: group,
-      round: round
+      round: round,
+      people_list: people_list
     }
+  }
+  componentWillMount() {
+    console.log(this.state.people_list)
   }
   handleNewRound() {
     console.log('增加round')
@@ -271,6 +303,49 @@ export default class Arrayoperating extends Component {
       array_data: data
     })
   }
+  handleAddGroup(i, e) {
+    console.log('增加Group')
+    let data = this.state.array_data
+    let new_group = []
+    data[i].push(new_group)
+    this.setState({
+      array_data: data
+    })
+  }
+  handleAddTeam(i, e) {
+    console.log('增加Team')
+    let data = this.state.array_data
+    let round = data[i]
+    let group = round[e.target.dataset.group_index]
+    let team = [
+      {// person
+        name: '',
+        score: 0,
+        win: false
+      },
+      {// person
+        name: '',
+        score: 0,
+        win: false
+      }
+    ]
+    group.push(team)
+    this.setState({
+      array_data: data
+    })
+  }
+  handleSelectName(i, e) {
+    console.log('修改名字')
+    let data = this.state.array_data
+    let round = data[i]
+    let group = round[e.target.dataset.group_index]
+    let team = group[e.target.dataset.team_index]
+    let person = team[e.target.dataset.person_index]
+    person.name = e.target.value
+    this.setState({
+      array_data: data
+    })
+  }
   render() {
     return (
       <div className="array">
@@ -287,7 +362,7 @@ export default class Arrayoperating extends Component {
           {/* i是Round的索引值 */}
           {
             this.state.array_data.map((data, i) => (
-              <Round key={i} round={data} round_index={i}     handleDeleteRound={this.handleDeleteRound.bind(this, i)} handleDeleteGroup={this.handleDeleteGroup.bind(this, i)} handleDeleteTeam={this.handleDeleteTeam.bind(this, i)}
+              <Round key={i} round={data} round_index={i} people_list={this.state.people_list} handleDeleteRound={this.handleDeleteRound.bind(this, i)} handleDeleteGroup={this.handleDeleteGroup.bind(this, i)} handleDeleteTeam={this.handleDeleteTeam.bind(this, i)} handleAddGroup={this.handleAddGroup.bind(this, i)} handleAddTeam={this.handleAddTeam.bind(this, i)} handleSelectName={this.handleSelectName.bind(this, i)}
               />
             ))
           }
@@ -322,9 +397,10 @@ class Round extends Component {
         {
           this.props.round.map((data, i) => (
             // <div key={i}>321</div>
-            <Group key={i} group={data} group_index={i} handleDeleteGroup={this.props.handleDeleteGroup} handleDeleteTeam={this.props.handleDeleteTeam} />
+            <Group key={i} group={data} group_index={i} handleDeleteGroup={this.props.handleDeleteGroup} handleDeleteTeam={this.props.handleDeleteTeam} handleAddTeam={this.props.handleAddTeam} people_list={this.props.people_list} handleSelectName={this.props.handleSelectName} />
           ))
         }
+        <Btn text="增加Group" handleFunction={this.props.handleAddGroup} />
       </div>
     )
   }
@@ -341,9 +417,10 @@ class Group extends Component {
         {
           this.props.group.map((data, i) => (
             // <div key={i}>123</div>
-            <Team key={i} team={data} team_index={i} handleDeleteTeam={this.props.handleDeleteTeam} group_index={this.props.group_index}/>
+            <Team key={i} team={data} team_index={i} handleDeleteTeam={this.props.handleDeleteTeam} group_index={this.props.group_index} people_list={this.props.people_list} handleSelectName={this.props.handleSelectName}/>
           ))
         }
+        <Btn text="增加Team" handleFunction={this.props.handleAddTeam} group_index={this.props.group_index} />
       </div>
     )
   }
@@ -359,14 +436,51 @@ class Team extends Component {
         </div>
         {
           this.props.team.map((data, i) => (
-            <Person key={i} name={data.name} score={data.score}/>
+            <Person key={i} name={data.name} score={data.score} people_list={this.props.people_list} group_index={this.props.group_index} team_index={this.props.team_index} person_index={i} handleSelectName={this.props.handleSelectName}/>
           ))
         }
+        {/* {
+          this.props.team.length < 2
+          ?
+          <Btn text="增加参赛者" handleFunction={this.props.handleAddTeam} group_index={this.props.group_index} />
+          :
+          ''
+        } */}
       </div>
     )
   }
 }
 
-const Person = (props) => (
-  <div className="person">{props.name} - {props.score}</div>
-)
+class Person extends Component {
+  render() {
+    return (
+      <div>
+        <Name people_list={this.props.people_list}
+              group_index={this.props.group_index}
+              team_index={this.props.team_index}
+              person_index={this.props.person_index} handleSelectName={this.props.handleSelectName}
+        />
+      </div>
+    )
+  }
+}
+
+class Name extends Component {
+  render() {
+    return (
+      <select data-round_index={this.props.round_index}
+        data-group_index={this.props.group_index}
+        data-team_index={this.props.team_index}
+        data-person_index={this.props.person_index}
+        onChange={this.props.handleSelectName}
+      >
+        <option key={0} value="">请选择</option>
+        {
+          this.props.people_list.map((data, i) => (
+            <option key={i + 1} value={data.name}>{data.name}</option>
+          ))
+        }
+      </select>
+    )
+  }
+}
