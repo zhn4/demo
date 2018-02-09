@@ -1,0 +1,27 @@
+.array .person {
+  border: 1px solid red;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.array .team {
+  border: 2px solid green;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.array .group {
+  border: 3px solid blue;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.array .round {
+  border: 4px solid pink;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.array .round button {
+  display: inline-block;
+}
